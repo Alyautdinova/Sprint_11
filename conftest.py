@@ -15,9 +15,6 @@ def register_new_user():
         "submitPassword": user_data["password"]
         }
 
-    response = requests.post(Urls.SIGN_URL, json=payload)
+    response = requests.post(Urls.SIGNUP_URL, json=payload)
 
-    return {
-        "payload": payload,
-        "token": response.json().get("accessToken")
-    }
+    return payload

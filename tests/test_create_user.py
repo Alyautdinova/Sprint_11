@@ -17,7 +17,7 @@ class TestCreateUser:
             }
         
         with allure.step('Проверка, что создали пользователя'):
-            response = requests.post(Urls.SIGN_URL, json=payload)
+            response = requests.post(Urls.SIGNUP_URL, json=payload)
             assert response.status_code == 201
             assert response.json()["user"]["email"] == user_data["email"]
 
@@ -25,8 +25,8 @@ class TestCreateUser:
     @allure.description('Проверяем, что запрос отдает 400 и ошибку при создании пользователя с данными как у существующего пользователя в системе')
     def test_create_two_identical_user(self, register_new_user):
         with allure.step('Создание второго пользователя с такими же данными как первый пользователь'):
-            payload = register_new_user["payload"]
-            response = requests.post(Urls.SIGN_URL, json=payload)
+            payload = register_new_user
+            response = requests.post(Urls.SIGNUP_URL, json=payload)
         
         with allure.step('Проверка, что пользователь с данными, которые уже есть в системе, не создается'):
             assert response.status_code == 400

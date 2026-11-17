@@ -1,4 +1,4 @@
 class Urls:
     BASE_URL = "https://qa-desk.education-services.ru/"
-    SIGN_URL = BASE_URL + "api/signup"
-    
+    SIGNUP_URL = BASE_URL + "api/signup"
+    SIGNIN_URL = BASE_URL + "api/signin"
